@@ -1,0 +1,19 @@
+           //保存文件相关代码		
+			FileWriter fw = null;
+			BufferedWriter bw = null;
+			try {
+				//将选择的文件添加到文件流中去
+				fw = new FileWriter(jfc.getSelectedFile().getAbsolutePath());
+				//将fw添加到缓存流中去
+				bw = new BufferedWriter(fw);				
+				fw.write(jta.getText());			
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}finally{
+				try {
+					fw.close();
+					bw.close();
+				} catch (Exception e3) {
+					e3.printStackTrace();
+				}
+			}

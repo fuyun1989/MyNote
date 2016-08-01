@@ -1,0 +1,7 @@
+
+第一个有延迟
+image1 = Toolkit.getDefaultToolkit().
+	getImage(Panel.class.getClassLoader().
+		getResource("1.jpeg"));
+		
+image2 = ImageIO.read(new File("1.jpeg"));

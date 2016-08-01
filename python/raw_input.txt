@@ -1,0 +1,2 @@
+str = raw_input
+type(str)返回str的类型

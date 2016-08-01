@@ -1,0 +1,13 @@
+1、java绘图技术：
+	paint(Graphics g)绘制组件的外观
+	repaint()刷新主界面的外观
+
+	super.paint(g);//调用父类函数完成初始化
+	drawLine//画直线
+	drawRect//画矩形边框
+	drawOval//画椭圆
+	drawImage//画图片
+	drawString//画字符串
+	setFont(Font font)//设置字体
+	setColor(Color c)//设置颜色
+	fillRect//填充矩形

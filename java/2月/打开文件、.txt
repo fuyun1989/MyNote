@@ -1,0 +1,26 @@
+//打开文件相关代码	
+			FileReader fr = null;
+			BufferedReader br = null;
+			try {
+				fr = new FileReader(jfc.getSelectedFile().getAbsolutePath());
+				br = new BufferedReader(fr);
+				int n = 0;
+				String res = "";
+				String s = "";
+				while ((s = br.readLine())!=null) {					
+					res +=s;
+					res +="\r\n";					
+				}
+				jta.setText(res);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			} finally {
+				//关闭文件流
+				try {
+					fr.close();
+					br.close();
+				} catch (Exception e1) {
+					// TODO 自动生成的 catch 块
+					e1.printStackTrace();
+				}
+			}
