@@ -1,0 +1,48 @@
+//为了方便在finally中关闭，将connection、statement放在前面
+		Connection conn = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			//加载驱动
+			Class.forName("com.mysql.jdbc.Driver");
+			//创建连接，连接到mysql数据库
+			conn = DriverManager
+					.getConnection("jdbc:mysql://localhost/emp1?" + "user=root&password=040417&useSSL=true");
+			//创建createment并使其可以滚动
+			st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			//执行查询操作
+			rs = st.executeQuery("select * from info");
+			//将光标置于第一条数据前面
+			rs.beforeFirst();
+			//设置自动提交为假，方便回滚
+			conn.setAutoCommit(false);
+			//循环取出rs内容并输出
+			while (rs.next()) {
+				System.out.println(
+						"name:" + rs.getString("name") + "\tnum:" + rs.getInt("num") + "\tage:" + rs.getInt("age"));
+			}
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			//当修改数据库异常时回滚
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				// TODO 自动生成的 catch 块
+				e1.printStackTrace();
+			}
+		}
+		//关闭资源，先创建的后关闭，后创建的线关闭，顺序相反
+		finally {
+			try {
+				if(st!=null){
+					st.close();
+				}
+				if (conn!=null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+		}

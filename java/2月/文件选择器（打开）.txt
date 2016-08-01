@@ -1,0 +1,10 @@
+//创建文件选择器
+JFileChooser jfc = new JFileChooser();
+//设置文件标题
+jfc.setDialogTitle("请选择打开的文件……");
+//设置默认打开文件目录
+jfc.setCurrentDirectory(new File("d:\\"));
+//设置文件打开类型
+jfc.showOpenDialog(null);
+//设置显示为真
+jfc.setVisible(true);

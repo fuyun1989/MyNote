@@ -1,0 +1,23 @@
+1、src
+	编写java代码的目录，遵循java命名规范
+2、gen
+	包含了android的资源文件的标识符，不需要自己修改的
+3、assets
+	源生资源文件：保存文件的应用文件，如视频音频等等
+4、bin
+	包含编译生成的APK应用程序XX.APK
+5、libs
+	包含的第三方类库的jar包
+6、res
+	drawable-hdpi：高清图标
+	......
+	layout：布局文件,UI控件的布局
+	munu：菜单
+	values：字符资源文件：文字信息，通常使用在apk的国际化，便于
+	语言的切换
+	
+7、AndoridManiFest.xml：清单文件
+	1、包名
+	2、apk版本
+	3、apk图片、说明
+	4、相关的授权

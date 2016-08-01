@@ -1,0 +1,50 @@
+connection：与特定数据库的连接（会话）。在连接上下文中执行 SQL 语句并返回结果。
+			Connection 对象的数据库能够提供描述其表、所支持的 SQL 语法、存储过
+			程、此连接功能等等的信息。此信息是使用 getMetaData 方法获得的。
+			注：默认情况下，Connection 对象处于自动提交模式下，这意味着它在执
+			行每个语句后都会自动提交更改。如果禁用了自动提交模式，那么要提交更
+			改就必须显式调用 commit 方法；否则无法保存数据库更改。
+			
+			在finally中要将连接关闭，避免资源枯竭
+			
+			尽量晚创建，早释放
+
+ResultSet：表示数据库结果集的数据表，通常通过执行查询数据库的语句生成。 
+			
+			ResultSet 对象具有指向其当前数据行的光标。最初，光标被置于第一行之
+			前。next 方法将光标移动到下一行；因为该方法在 ResultSet 对象没有下
+			一行时返回 false，所以可以在 while 循环中使用它来迭代结果集。 
+			
+			默认的 ResultSet 对象不可更新，仅有一个向前移动的光标。因此，只能迭
+			代它一次，并且只能按从第一行到最后一行的顺序进行。可以生成可滚动和/或
+			可更新的 ResultSet 对象。以下代码片段（其中 con 为有效的 Connection 
+			对象）演示了如何生成可滚动且不受其他更新影响的可更新结果集。有关其他
+			选项，请参见 ResultSet 字段。
+			
+			字段摘要：
+				static int CLOSE_CURSORS_AT_COMMIT 
+						  该常量指示提交当前事务时，具有此可保存性的打开的 ResultSet 对象将被关闭。 
+				static int CONCUR_READ_ONLY 
+						  该常量指示不可以更新的 ResultSet 对象的并发模式。 
+				static int CONCUR_UPDATABLE 
+						  该常量指示可以更新的 ResultSet 对象的并发模式。 
+				static int FETCH_FORWARD 
+						  该常量指示将按正向（即从第一个到最后一个）处理结果集中的行。 
+				static int FETCH_REVERSE 
+						  该常量指示将按逆向（即从最后一个到第一个）处理结果集中的行处理。 
+				static int FETCH_UNKNOWN 
+						  该常量指示结果集中的行的处理顺序未知。 
+				static int HOLD_CURSORS_OVER_COMMIT 
+						  该常量指示提交当前事务时，具有此可保存性的打开的 ResultSet 对象将保持开放。 
+				static int TYPE_FORWARD_ONLY 
+						  该常量指示光标只能向前移动的 ResultSet 对象的类型。 
+				static int TYPE_SCROLL_INSENSITIVE 
+						  该常量指示可滚动但通常不受 ResultSet 底层数据更改影响的 ResultSet 对象的类型。 
+				static int TYPE_SCROLL_SENSITIVE 
+						  该常量指示可滚动并且通常受 ResultSet 底层数据更改影响的 ResultSet 对象的类型。 
+
+statement 	用于执行静态 SQL 语句并返回它所生成结果的对象。
+				在默认情况下，同一时间每个 Statement 对象在只能打开一个 ResultSet 对象。
+				因此，如果读取一个 ResultSet 对象与读取另一个交叉，则这两个对象必须是由不
+				同的 Statement 对象生成的。如果存在某个语句的打开的当前 ResultSet 对象，
+				则 Statement 接口中的所有执行方法都会隐式关闭它。 

@@ -1,0 +1,7 @@
+#coding:utf-8
+import webbrowser
+import urllib
+url = "Http://www.baidu.com"
+content = urllib.urlopen(url).read()
+open("baidu.html","w").write(content)
+webbrowser.open_new_tab("baidu.html")

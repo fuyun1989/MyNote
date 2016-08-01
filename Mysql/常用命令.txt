@@ -1,0 +1,115 @@
+//创建数据库
+create database databasename;
+
+//更换数据库
+use dataname;
+
+//显示已有的数据
+show databases;
+
+//查看如何创建数据库
+show create database databasename;
+
+//删除数据库
+drop databasename;
+
+//备份和恢复数据库
+mysqldump -u username -p密码 数据库名 >存放路径
+
+//创建一个表
+create table tablename（
+	ID int(4) not null primary key,
+	name char(20) not null,
+	birthday date,
+	time datetime,
+	sex int(2) not null default '0',
+	degree double(12,2),
+	hiredate timestamp
+	);
+	
+//向表中插入数据
+insert into tablename values(1,'1989-04-04',now(),'zhang');
+	
+//删除一张表
+drop table tablename;
+
+//向表中添加一列
+alter table 表名 add column sex  char (8);
+
+//修改表中一列的名字
+alter table tablename change column oldname newname 类型;
+
+//修改列的类型（不能修改列名且列必须为空）
+alter table 表名 modify 列名 数据类型
+
+//删除某列
+alter table 表名 drop 列名
+
+//查询表,查询所有信息
+select * from tablename;
+
+//查询部分信息
+select 列名 from tablename where 条件；
+
+//在列名上加条件
+select 列名表达式（as 别名） from tablename where 条件；
+
+select max|min(列名)from tablename where 条件；
+
+select column from table group by column having 条件  order by column;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//字符集编码
+show variables like 'chara%'
+set character_set_client=gbk;//可存中文
+set character_set_results=gbk;//可以查看中文
+整数类型        字节       范围（有符号）      范围（无符号）          用途 
+TINYINT        1字节        (-128，127)          (0，255)            小整数值 
+SMALLINT       2字节     (-32 768，32 767)       (0，65 535)         大整数值 
+MEDIUMINT      3字节    (-8 388 608，8 388 607) (0，16 777 215)      大整数值 
+INT或INTEGER   4字节   (-2 147 483 648，2 147 483 647) (0，4 294 967 295) 大整数值 
+BIGINT         8字节   (-9 233 372 036 854 775 808，9 223 372 036 854 775 807) (0，18 446 744 073 709 551 615) 极大整数值 
+FLOAT          4字节   (-3.402 823 466 E+38，1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38) 0，(1.175 494 351 E-38，3.402 823 466 E+38) 单精度浮点数值 
+DOUBLE         8字节 (1.797 693 134 862 315 7 E+308，2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308) 0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308) 双精度浮点数值 
+DECIMAL 对DECIMAL(M,D) ，如果M>D，为M+2否则为D+2 依赖于M和D的值 依赖于M和D的值 小数值
+
+
+字符串类型     字节大小         描述及存储需求
+    CHAR         0-255字节          定长字符串 
+    VARCHAR      0-255字节          变长字符串 
+    TINYBLOB     0-255字节        不超过 255 个字符的二进制字符串 
+    TINYTEXT     0-255字节        短文本字符串 
+    BLOB         0-65535字节      二进制形式的长文本数据 
+    TEXT         0-65535字节      长文本数据 
+    MEDIUMBLOB   0-16 777 215字节 二进制形式的中等长度文本数据 
+    MEDIUMTEXT   0-16 777 215字节 中等长度文本数据 
+    LOGNGBLOB    0-4 294 967 295字节 二进制形式的极大文本数据 
+    LONGTEXT     0-4 294 967 295字节 极大文本数据
+    VARBINARY(M)                   允许长度0-M个字节的定长字节符串，值的长度+1个字节
+    BINARY(M)    M                 允许长度0-M个字节的定长字节符串
+	
+	
+	
+	三.日期和时间类型
+　在处理日期和时间类型的值时，MySQL 带有 5 个不同的数据类型可供选择。它们可以被分成简单的日期、时间类型，和混合日期、时间类型。
+根据要求的精度，子类型在每个分类型中都可以使用，并且 MySQL 带有内置功能可以把多样化的输入格式变为一个标准格式。
+
+ 类型     大小(字节)     范围               格式          用途 
+ DATE       4        1000-01-01/9999-12-31 YYYY-MM-DD    日期值 
+ TIME       3        '-838:59:59'/'838:59:59' HH:MM:SS    时间值或持续时间 
+ YEAR       1         1901/2155               YYYY       年份值 
+ DATETIME   8       1000-01-01 00:00:00/9999-12-31 23:59:59 YYYY-MM-DD HH:MM:SS 混合日期和时间值 
+ TIMESTAMP  4       1970-01-01 00:00:00/2037 年某时 YYYYMMDD HHMMSS 混合日期和时间值，时间戳
