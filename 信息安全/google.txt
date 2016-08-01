@@ -1,0 +1,23 @@
+最常用的10 个查询条件
+index.of.password
+"access denied for user" "using password"
+"http://*:*@www" " domainname
+auth_user_file.txt
+The Master List
+allinurl: admin mdb
+passlist.txt (a better way)
+"A syntax error has occurred" filetype:ihtml
+"# -FrontPage-" inurl:service.pwd
+ORA-00921: unexpected end of SQL command
+最新的10 个查询条件
+filetype:blt "buddylist "
+intitle:"index of" inurl:ftp (pub | incoming)
+filetype:cnf inurl:_vti_pvt access.cnf
+allinurl:"/*/_vti_pvt/" | /" | allinurl:"/*/_vti_cnf/"
+inurl:"install/install.php"
+intitle:"welcome.to.squeezebox"
+intext:""BiTBOARD v2.0" BiTSHiFTERS Bulletin Board"
+intitle:Login intext:"RT is &copy; Copyright"
+ext:php program_listing
+intitle:MythWeb.Program.Listing
+intitle:index.of abyss.conf

@@ -1,0 +1,11 @@
+在conf/server.xml中添加
+<Context path="/web" docBase="c:\web" />
+来实现将webapps中的web映射到其他文件夹
+context 的reloadable属性设置为true则定时查看web是否有变化，比较占用资源
+
+
+一个server下有一个engine，一个engine下有多个host
+
+如何配置默认主机：
+配置conf/server.xmf中
+<Engine name="catalina" defaultHost="your url">

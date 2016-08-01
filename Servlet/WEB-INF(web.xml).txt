@@ -1,0 +1,10 @@
+<servlet>
+        <servlet-name>wsChat</servlet-name>
+		<!--包名+类名-->
+        <servlet-class>websocket.tc7.chat.ChatWebSocketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+	<!--servelt 的映射，servlet-name需与上面的servlet-name相同-->
+        <servlet-name>wsChat</servlet-name>
+        <url-pattern>/websocket/tc7/chat</url-pattern>
+    </servlet-mapping>

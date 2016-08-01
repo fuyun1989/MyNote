@@ -1,0 +1,34 @@
+实现动态网页技术，实现和用户的互动
+servlet是java编写的服务器程序，特点如下：
+1、由服务器调用和执行
+2、由java语言编写的
+3、按照servlet规范开发的
+4、功能强大，可以完成几乎所有的网站功能
+5、是学习jsp的基础
+
+开发servlet的三种方法：
+1、实现servlet接口
+2、集成GenericServlet
+3、继承HttpServletervlet
+
+
+<!--1表示servlet被启动的顺序不是启动的次数-->
+<!--通过这个参数，可以调用不需要客户端调用的servlet，只供服务器调用-->
+<!--是servlet的属性，不是servlet-mapping的属性-->
+<load-on-startup>1</load-on-startup>
+
+<!--在servlet中添加，则只对此servlet生效-->
+<init-param>
+	<param-name></param-name>
+	<param-value></param-value>
+</init-param>
+
+<!--配置全局属性-->
+<context-param>
+	<param-name></param-name>
+	<param-value></param-value>
+</context-param>
+
+
+读取该属性方法为：
+this.getServletConfig.getInitParameters("param");
